@@ -15,4 +15,26 @@
 ・実装予定の内容
 
 ・DB設計
+## usersテーブル
+|Column|Type|Options|Index|
+|------|----|-------|-----|
+|first_name     |string    |null: false|
+|last_name      |string    |null: false|
+|first_name_kana|string    |null: false|
+|last_name_kana |string    |null: false|
+|nickname       |string    |null: false|
+|email          |string    |null: false, unique:ture|○|
+|birthday       |date      |null: false|
+|phone_number   |string    |  |
+|introduction   |text      |  |
+### Association
+- has_one :addrres
+- has_many :comments
+- has_many :items
+- has_one :card
 
+# projectテーブル
+|Column|Type|Options|Index|
+
+# todolistテーブル
+|Column|Type|Options|Index|
