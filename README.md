@@ -1,6 +1,10 @@
 ・アプリ名
+　project-chat
 
 ・概要(このアプリでできることを書いて下さい)
+  プロジェクトメンバーが各部署が持っているタスクを確認できる
+  チャット形式で進捗を更新できる
+  todoのように完了すれば消すことができる
 
 ・制作背景(意図)
 　情報共有をメールで実施しているが、メールの数が膨大すぎて過去のメールから遡るのに時間がかかる
@@ -8,7 +12,7 @@
 　
 　こういった課題に対応するために以下のような機能を持ったアプリを作成しました。
 　チャット形式で現状のタスク状況を部署ごとに把握できる
-　 
+　
 ・DEMO(gifで動画や写真を貼って、ビューのイメージを掴んでもらいます)
 
 　⇒できている範囲で貼り付けましょう。
@@ -28,13 +32,33 @@
 |phone_number   |string    |  |
 |introduction   |text      |  |
 ### Association
-- has_one :addrres
-- has_many :comments
+- has_many :projects
 - has_many :items
 - has_one :card
 
 # projectテーブル
 |Column|Type|Options|Index|
+|name |string |null:false|
+
+
+### Association
+has_many :todolists
+has_many :users
+
+# user_projectテーブル
+|Column|Type|Options|Index|
+|user_id     |integer|optional: true
+|project_id  |integer|optional: true
+
+### Association
+belongs_to :todolist
+belongs_to :user
+
 
 # todolistテーブル
 |Column|Type|Options|Index|
+|------|----|-------|-----|
+
+# commentテーブル
+|Column|Type|Options|Index|
+|------|----|-------|-----|
