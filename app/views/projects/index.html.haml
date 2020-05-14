@@ -1,12 +1,18 @@
 .wrapper
 = render "side-bar"
 
-.main_messages
-  .header_message
+.main_projects
+  .header_project
     .group-menu
       %h2.user-name
       %ul.group-name
         %li.group-name__list
-  .main_contents__messages
+  .main_projects__messages
+  - @project.each do |project|
+    = link_to project_path(project.id) do
+      = project.name
+
+  .main_projects-btn
+    =link_to "プロジェクトを作成",new_project_path
 
   .form

@@ -58,7 +58,10 @@ belongs_to :user
 # todolistテーブル
 |Column|Type|Options|Index|
 |------|----|-------|-----|
+|todo_name|string   |null: false|
+|project  |reference|optional: true
 
 # commentテーブル
 |Column|Type|Options|Index|
 |------|----|-------|-----|
+|body|
