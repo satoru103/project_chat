@@ -47,8 +47,8 @@ has_many :users
 
 # user_projectテーブル
 |Column|Type|Options|Index|
-|user_id     |integer|optional: true
-|project_id  |integer|optional: true
+|user     |references|foreign_key: true
+|project  |references|foreign_key: true
 
 ### Association
 belongs_to :todolist
