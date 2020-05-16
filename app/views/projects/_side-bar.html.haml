@@ -2,12 +2,17 @@
   .side_bar__Menu
     .side_bar__Menu__block
       %p.username
-      sample
+      = current_user.name
       %ul.icon
         %li.icon_cab
+        =link_to "ログアウト",destroy_user_session_path,method: :delete
         %li.icon_cog
+        =link_to "アカウントの編集",edit_user_registration_path
 
   .side_bar__group
     .side_bar__group__block
-      .group_name
+      - current_user.projects.each do |p|
+        .group.name
+          = p.name
+
       .group_message

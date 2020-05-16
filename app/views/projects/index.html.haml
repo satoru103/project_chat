@@ -8,11 +8,10 @@
       %ul.group-name
         %li.group-name__list
   .main_projects__messages
-  - @project.each do |project|
-    = link_to project_path(project.id) do
-      = project.name
-
-  .main_projects-btn
-    =link_to "プロジェクトを作成",new_project_path
+    - @project.each do |project|
+      = link_to project_path(project.id) do
+        = project.name
+    .main_projects-btn
+      =link_to "プロジェクトを作成",new_project_path
 
   .form
