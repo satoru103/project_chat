@@ -22,19 +22,10 @@
 ## usersテーブル
 |Column|Type|Options|Index|
 |------|----|-------|-----|
-|first_name     |string    |null: false|
-|last_name      |string    |null: false|
-|first_name_kana|string    |null: false|
-|last_name_kana |string    |null: false|
-|nickname       |string    |null: false|
-|email          |string    |null: false, unique:ture|○|
-|birthday       |date      |null: false|
-|phone_number   |string    |  |
-|introduction   |text      |  |
+|name       |string    |null: false|
+|email      |string    |null: false, unique:ture|○|
 ### Association
 - has_many :projects
-- has_many :items
-- has_one :card
 
 # projectテーブル
 |Column|Type|Options|Index|

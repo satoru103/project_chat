@@ -11,5 +11,8 @@
 
   .side_bar__group
     .side_bar__group__block
-      .group_name
+      - current_user.projects.each do |p|
+        .group.name
+          = p.name
+
       .group_message
