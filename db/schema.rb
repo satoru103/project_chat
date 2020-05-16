@@ -10,12 +10,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_16_141448) do
+ActiveRecord::Schema.define(version: 2020_05_16_152901) do
 
   create_table "projects", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "todolists", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "todolist_name"
+    t.text "body"
+    t.bigint "project_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["project_id"], name: "index_todolists_on_project_id"
+  end
+
+  create_table "user_projects", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "project_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["project_id"], name: "index_user_projects_on_project_id"
+    t.index ["user_id"], name: "index_user_projects_on_user_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -40,6 +58,8 @@ ActiveRecord::Schema.define(version: 2020_05_16_141448) do
     t.index ["user_id"], name: "index_users_projects_on_user_id"
   end
 
+  add_foreign_key "user_projects", "projects"
+  add_foreign_key "user_projects", "users"
   add_foreign_key "users_projects", "projects"
   add_foreign_key "users_projects", "users"
 end

@@ -1,4 +1,4 @@
-・アプリ名
+・アプリ名  
 　project-chat
 
 ・概要(このアプリでできることを書いて下さい)
@@ -6,7 +6,7 @@
   チャット形式で進捗を更新できる
   todoのように完了すれば消すことができる
 
-・制作背景(意図)
+・制作背景(意図)  
 　情報共有をメールで実施しているが、メールの数が膨大すぎて過去のメールから遡るのに時間がかかる
 　各部署のタスク共有が会議、メールになっているため
 　
@@ -36,7 +36,7 @@
 has_many :todolists
 has_many :users
 
-# user_projectテーブル
+# users_projectsテーブル
 |Column|Type|Options|Index|  
 |user     |references|foreign_key: true
 |project  |references|foreign_key: true
@@ -49,8 +49,12 @@ belongs_to :user
 # todolistテーブル
 |Column|Type|Options|Index|
 |------|----|-------|-----|
-|todo_name|string   |null: false|
-|project  |reference|optional: true
+|todolist_name|string   |null: false|
+|body         |text
+|project      |reference||
+
+### Association
+belongs_to :project
 
 # commentテーブル
 |Column|Type|Options|Index|
