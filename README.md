@@ -46,12 +46,12 @@ has_many :todolists
 has_many :users
 
 # user_projectテーブル
-|Column|Type|Options|Index|
+|Column|Type|Options|Index|  
 |user     |references|foreign_key: true
 |project  |references|foreign_key: true
 
 ### Association
-belongs_to :todolist
+belongs_to :project  
 belongs_to :user
 
 
