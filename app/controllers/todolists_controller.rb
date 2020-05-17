@@ -1,21 +1,13 @@
 class TodolistsController < ApplicationController
-  before_action :set_project
+  before_action :set_project,only:[:create,:show]
+
 
   def inedex
   end
 
   def create
-    @todolist = @project.todolist.new(todolist_params)
-    if @todolist.save
-      redirect_to @todolist
-    else
-      render "new"
-  end
-
-  def edit
-  end
-
-  def update
+    @todolist = @project.todolist.create(todolist_params)
+    redirect_to @todolist
   end
 
   def destroy

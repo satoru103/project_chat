@@ -1,4 +1,4 @@
-= form_for @project,id:"new_todolist" do |todolist|
+= form_for [@project,@project.todolists.create],id:"new_todolist" do |todolist|
   = todolist.text_field :todolist_name, class:"todolist-form",placeholder:"タスクを入力してください"
   = todolist.text_field :body,class:"todolist-form"
   = todolist.submit
