@@ -1,2 +1,16 @@
 .wrapper
 = render "side-bar"
+
+.todolists__header
+  %h2 project.name
+
+.todolists__main
+  .todolists__main-list
+    =render "todolists/index"
+
+  .todolists__main-form
+    =render "todolists/form"
+
+.todolists__footer
+  .todolists__footer-btn
+  = link_to '戻る',root_path

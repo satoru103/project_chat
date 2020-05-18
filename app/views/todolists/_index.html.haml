@@ -1,0 +1,8 @@
+- @project.todolists.each do |p|
+  .todolist-complete
+  =p.todolist_name
+  .complete-trash
+    =link_to project_todolist_path(@project,p.id),method: :delete,data:{comfirm:"削除してもよろしいですか"}do
+      %i.fa.fa-trash
+  .complete-check
+    =link_to "完了",
