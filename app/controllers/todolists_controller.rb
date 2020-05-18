@@ -1,16 +1,20 @@
 class TodolistsController < ApplicationController
-  before_action :set_project,only:[:create,:show]
+  before_action :set_project,only:[:index,:create,:show,:destroy]
+  
 
 
   def inedex
   end
 
   def create
-    @todolist = @project.todolist.create(todolist_params)
-    redirect_to @todolist
+    @todolist = @project.todolists.create(todolist_params)
+    redirect_to @project
   end
 
   def destroy
+    @todolist = @project.todolists.find(params[:id])
+    @todolist.destroy
+    redirect_to @project
   end
 
   private
@@ -18,7 +22,11 @@ class TodolistsController < ApplicationController
     @project = Project.find(params[:project_id])
   end
 
+  def set_todolist
+    @todolist = @project.todolists.find(params[:id])
+  end
+
   def todolist_params
-    params.require(:todolist).permit(:todolist_name,:body)
+    params.require(:todolist).permit(:project_id,:todolist_name)
   end
 end

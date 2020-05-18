@@ -38,8 +38,9 @@ has_many :users
 
 # users_projectsテーブル
 |Column|Type|Options|Index|  
-|user     |references|foreign_key: true
-|project  |references|foreign_key: true
+|------|----|-------|-----|
+|user   |references|foreign_key: true
+|project|references|foreign_key: true
 
 ### Association
 belongs_to :project  
