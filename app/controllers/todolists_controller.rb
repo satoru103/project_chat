@@ -1,7 +1,5 @@
 class TodolistsController < ApplicationController
   before_action :set_project,only:[:index,:create,:show,:destroy]
-  
-
 
   def inedex
   end
@@ -22,9 +20,6 @@ class TodolistsController < ApplicationController
     @project = Project.find(params[:project_id])
   end
 
-  def set_todolist
-    @todolist = @project.todolists.find(params[:id])
-  end
 
   def todolist_params
     params.require(:todolist).permit(:project_id,:todolist_name)
