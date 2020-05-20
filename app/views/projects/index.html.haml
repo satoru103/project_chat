@@ -1,16 +1,15 @@
 = render "side-bar"
 .main_projects
   .header_project
-    .group-menu
-      %h2.user-name
-      %ul.group-name
-        %li.group-name__list
-  .main_projects__messages
+    #timer
+
+  .main_projects-list
     - @project.each do |project|
+      .list-content
       = link_to project_path(project.id) do
         = project.name
   .form
     = form_for @projects,id:"new_project" do |t|
       = t.text_field :name, class:"project-form",placeholder:"プロジェクトを入力してください"
       .form_btn
-      = t.submit
+        = t.submit

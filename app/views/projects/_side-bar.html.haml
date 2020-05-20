@@ -2,12 +2,12 @@
   .side_bar__Menu
     .side_bar__Menu__block
       %p.username
-      = current_user.name
-      %ul.icon
-        %li.icon_cab
-        =link_to "ログアウト",destroy_user_session_path,method: :delete
-        %li.icon_cog
-        =link_to "アカウントの編集",edit_user_registration_path
+        = current_user.name
+      %ul.user_menu
+        %li.user_logout
+          =link_to "ログアウト",destroy_user_session_path,method: :delete
+        %li.user_edit
+          =link_to "アカウントの編集",edit_user_registration_path
 
   .side_bar__group
     .side_bar__group__block

@@ -20,8 +20,29 @@ html,body{
     padding-left: 20px;
     padding-right: 20px;
     height: 100px;
-
+    &__block{
+      p{
+        font-size: 20px;
+      }
+    }
   }
+  .user_menu{
+    .user_logout{
+      margin-top: 20px;
+      a{
+        text-decoration: none;
+        color: #fff;
+      }
+    }
+    .user_edit{
+      a{
+        text-decoration: none;
+        color: #fff;
+      }
+    }
+  }
+
+
   &__group{
     font-size: 15px;
     font-weight: bold;
@@ -55,12 +76,13 @@ html,body{
     };
   };
 };
-.main_projects__messages{
+.main_projects-list{
   height: calc(100vh - 190px);
   background-color: #fafafa;
   padding: 40px 40px;
   a{
-    font-size: 30px;
+    text-align: center;
+    font-size: 50px;
     text-decoration: none;
     display: block;
     margin-bottom: 20px;
@@ -77,7 +99,22 @@ html,body{
     height: 90px;
     padding: 20px 50px 20px 40px;
     bottom: 0;
-    .project-form{
-      width: 500px;
+    .new_project{
+      display: flex;
+      input[type="text"]{
+        width: 500px;
+      }
+    }
+    &_btn{
+      margin-top: 10px;
+      input[type="submit"]{
+        width: 300px;
+        height: 40px;
+        margin-left: 30px;
+        background-color: #3CCACE;
+        color: #fff;
+        border: 1px solid #fff;
+        border-radius: 100px;
+      }
     }
   }
